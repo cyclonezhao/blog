@@ -1842,7 +1842,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff74c4;
+  background: #ff9cdd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2614,15 +2614,19 @@ embed {
   color: #0477ab;
   text-decoration: underline;
 }
+div.fold {
+  display: none;
+}
 .hider_title {
   font-family: "Microsoft Yahei";
   cursor: pointer;
-  normal_color: "#0593d3";
-  hover_color: "#0477ab";
+}
+.hider_title:hover {
+  text-decoration: none;
 }
 .close:after {
-  content: "展开";
+  content: "展开代码";
 }
 .open:after {
-  content: "收起";
+  content: "收起代码";
 }

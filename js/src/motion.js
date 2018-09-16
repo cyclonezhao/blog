@@ -352,3 +352,12 @@ $(document).ready(function() {
   };
 
 });
+
+$(document).ready(function(){
+  $(document).on('click', '.hider_title', function(){
+      $('>.fold', this.parentNode.parentNode).slideToggle();
+      $('>:first', this.parentNode).toggleClass('open');
+  });
+  //默认情况下折叠
+  $("div.fold").css("display","none");
+});
