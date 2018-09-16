@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[八皇后问题]]></title>
+    <url>%2Fblog%2F%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[1. 定义在8*8棋盘上放置8个皇后，使得她们不能互相攻击，问有多少种摆法。 2. 给定一种摆法，列出所有互相攻击的棋子对 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667function willAttack(point1, point2)&#123; return point1.x == point2.x || point2.y == point1.y || (Math.abs(point1.x - point2.x) == Math.abs(point1.y - point2.y));&#125;var pointList = [ &#123;x:0, y:4&#125;, &#123;x:1, y:5&#125;, &#123;x:2, y:6&#125;, &#123;x:3, y:3&#125;, &#123;x:4, y:4&#125;, &#123;x:5, y:5&#125;, &#123;x:6, y:6&#125;, &#123;x:7, y:5&#125;];var result = [];for(var i = 0, len = pointList.length; i &lt; len; i++)&#123; var point1 = pointList[i]; for(var j = i + 1; j &lt; len; j++)&#123; var point2 = pointList[j]; if(willAttack(point1, point2))&#123; result.push([point1, point2]); &#125; &#125;&#125;console.log("count: " + result.length);for(var i in result)&#123; var pair = result[i]; console.log("(%s,%s)-&gt;(%s,%s)", pair[0].x, pair[0].y, pair[1].x, pair[1].y);&#125;/* 输入var pointList = [ &#123;x:0, y:4&#125;, &#123;x:1, y:5&#125;, &#123;x:2, y:6&#125;, &#123;x:3, y:3&#125;, &#123;x:4, y:4&#125;, &#123;x:5, y:5&#125;, &#123;x:6, y:6&#125;, &#123;x:7, y:5&#125;];输出count: 17eight queens:39 (0,4)-&gt;(1,5)eight queens:39 (0,4)-&gt;(2,6)eight queens:39 (0,4)-&gt;(4,4)eight queens:39 (1,5)-&gt;(2,6)eight queens:39 (1,5)-&gt;(3,3)eight queens:39 (1,5)-&gt;(5,5)eight queens:39 (1,5)-&gt;(7,5)eight queens:39 (2,6)-&gt;(4,4)eight queens:39 (2,6)-&gt;(6,6)eight queens:39 (3,3)-&gt;(4,4)eight queens:39 (3,3)-&gt;(5,5)eight queens:39 (3,3)-&gt;(6,6)eight queens:39 (4,4)-&gt;(5,5)eight queens:39 (4,4)-&gt;(6,6)eight queens:39 (5,5)-&gt;(6,6)eight queens:39 (5,5)-&gt;(7,5)eight queens:39 (6,6)-&gt;(7,5)*/]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>备忘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一元n次方程]]></title>
     <url>%2Fblog%2F%E4%B8%80%E5%85%83n%E6%AC%A1%E6%96%B9%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[1. 一元二次方程形如 \(f(x) = ax^2 + bx + c\) 称作一元二次方程，即自变量只有一个，自变量的最高次数为2。 1.1. 根的性质想求 \(f(x) = ax^2 + bx + c = 0\) 的根，有一个思路：先将表达式 \(ax^2 + bx + c = 0\) 转成 \((x+A)^2=B\) 的形式，之后即可得 \(x=\pm \sqrt{B}-A\) 。而 \((x+A)^2 = x^2 + 2Ax + A^2\) ，所以先将 \(ax^2 + bx + c = 0\) 转化成这种形式，推导过程如下：消除二次项系数 x^2 + \frac{b}{a}x + \frac{c}{a} = 0即 x^2 + \frac{b}{a}x = -\frac{c}{a}等号两边同时加项，将左边构造成 \(x^2 + 2Ax + A^2\) 的形式 x^2 + \frac{b}{2a}x\cdot 2 + (\frac{b}{2a})^2 = -\frac{c}{a}-(\frac{b}{2a})^2左边变形，右边同分母相加 (x+\frac{b}{2a})^2 = \frac{-4ac+b^2}{4a^2}求得 x=\pm \sqrt{\frac{b^2-4ac}{4a^2}} - \frac{b}{2a} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}1.2. 抛物线性质由以上结果可知，抛物线基于 \(x=-\frac{b}{2a}\) 对称，将该值代入方程，得原点坐标为 \((-\frac{b}{2a},\frac{-b^2+4ac}{4a})\) 。 1.3. 判别式在根表达式中， \(\Delta = b^2-4ac\) 为判别式，可根据判别式的值大于、等于、小于0的情况，判断方程有两个实根，一个实根还是有两个共轭复根。 2. 韦达定理2.1. 定义如果方程 $f(x) = a_0x^n+a_1x^{n-1}+…+a_{n-1}x+a_n=0$ $(a_0\neq 0)$ 的n个根是 $x_1,x_2,…,x_{n-1},x_n$，那么 \begin{cases} x_1+x_2+\cdot\cdot\cdot+x_n = -\frac{a_1}{a_0},\\ x_1x_2+x_1x_3+\cdot\cdot\cdot+x_{n-1}x_n = \frac{a_2}{a_0},\\ \cdot\cdot\cdot\\ x_1x_2x_3 \cdot\cdot\cdot x_{n-1}x_n = (-1)^n\frac{a_n}{a_0}. \end{cases}2.2. 证明据书上1所说，因为 $x_1, x_2, \cdot\cdot\cdot, x_n$ 是 $f(x)=0$ 的根，所以 $f(x)$ 必定含有n个一次因式：$x-x_1, x-x_2, \cdot\cdot\cdot, x-x_{n-1}, x-x_n$ 并且$f(x) = a_0(x-x_1)(x-x_2) \cdot\cdot\cdot (x-x_{n-1})(x-x_n)$2 把上式右端按照$x$降幂展开得 a_0x^n+a_1x^{n-1}+...+a_{n-1}x+a_n =\\ a_0x^n-a_0(x_1+x_2+\cdot\cdot\cdot+x_n)x^{n-1} \\ +a_0(x_1x_2+x_1x_3+\cdot\cdot\cdot+x_{n-1}x_n)x^{n-2}\\ +\cdot\cdot\cdot+(-1)^na_0x_1x_2x_3\cdot\cdot\cdot x_{n-1}x_n这是一个恒等式，根据多项式恒等定理，得\begin{cases}a_1=-a_0(x_1+x_2+\cdot\cdot\cdot+x_n) \\a_2=-a_0(x_1x_2+x_1x_3+\cdot\cdot\cdot+x_{n-1}x_n) \\\cdot\cdot\cdot \\a_n=(-1)^na_0x_1x_2x_3 \cdot\cdot\cdot x_{n-1}x_n\end{cases} 故定理得证 \begin{cases} x_1+x_2+\cdot\cdot\cdot+x_n = -\frac{a_1}{a_0},\\ x_1x_2+x_1x_3+\cdot\cdot\cdot+x_{n-1}x_n = \frac{a_2}{a_0},\\ \cdot\cdot\cdot\\ x_1x_2x_3 \cdot\cdot\cdot x_{n-1}x_n = (-1)^n\frac{a_n}{a_0}. \end{cases}3. 方程变换3.1. 变换后各个根为原方程各个根的k倍定理：方程 $ f(\frac{y}{k}) = 0 $ 的各个根分别等于方程 $ f(x) = 0 $ 各个根的k倍。证明：设 $ a_i(i=1,2,\cdot\cdot\cdot , n) $ 是方程 $ f(x) = 0 $ 的根，则 $ f(a_i) = f(\frac{ka_i}{k}) = 0 $，所以 $ ka_i(i=1,2,\cdot\cdot\cdot , n) $ 是方程 $ f(\frac{y}{k}) = 0 $ 的根，又因为 $ f(\frac{y}{k}) = 0 $ 只有n个根，故 $ f(\frac{y}{k}) = 0 $ 的各根分别等于 $ f(x) = 0 $ 各根的k倍。 3.2. 变换后各个根为原方程各个根相差k$f(y+k)=0$ 的各个根分别等于方程 $ f(x) = 0 $ 的各个根减去k。 3.3. 变换后各个根为原方程各个根的倒数$f(\frac{1}{y})$ 的各个根分别等于方程 $ f(x) = 0 $ 的各个根的倒数。 3.3.1. 倒根方程如果n次方程 $g(x)$ 的各个根分别是n次方程 $f(x) = a_0x^n+a_1x^{n-1}+…+a_{n-1}x+a_n=0$ 各个根的倒数，那么 $g(x) = a_nx^n+a_{n-1}x^{n-1}+…+a_1x+a_0=0$。 1.《初等数学研究》（主编：叶立军）第3.3节 ↩2.这里我能理解当x取这些根值的其中之一时，等式的左右两边都为0，但我还不明白为啥据此能得出 $f(x)$ 一定有这n个因式，且这条等式（不管x取什么值都）成立，这个问题先放着。 ↩]]></content>
@@ -13,9 +24,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ch02-智能Agent]]></title>
-    <url>%2Fblog%2Fch02-%E6%99%BA%E8%83%BDAgent%2F</url>
-    <content type="text"><![CDATA[性能度量行动序列 Agent一词的定义]]></content>
+    <title><![CDATA[ch03-通过搜索进行问题求解]]></title>
+    <url>%2Fblog%2Fch03-%E9%80%9A%E8%BF%87%E6%90%9C%E7%B4%A2%E8%BF%9B%E8%A1%8C%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[要进行问题求解，首先要讨论的是对问题及其解的精确定义。目标 目标被满足的那些“世界的状态”的集合它需要确定它能完成的行动种类，和行动所带来的状态变化 问题形式化，是在给定目标下对需要采取的行动和需要考虑的状态的确认过程是一种抽象，一种化简，例如不考虑听收音机，欣赏窗外的景色搜索，为达到目标，寻找行动序列的过程搜索的输入是问题，输出是问题的解，以行动序列的形式输出解 无视环境，开环系统 用5个组成部分形式化描述问题 Agent的初始状态 描述Agent的可能行动，即描述Agent在给定状态s下可以执行的动作集合 对每个行动的描述，称为 转移模型，在状态s下执行行动a后达到的状态，用RESULT(s, a)函数描述，例如 RESULT(in(1), go(2)) = in(2) 目标测试，确定给定的状态是不是目标状态（在目标状态集合里） 路径耗散，解的质量由路径耗散度量，耗散值最小的为最优解 初始状态、行动和转移模型定义了问题的状态空间 搜索算法将状态和行动视为原子，不考虑其内部的结构 TREE-SEARCH算法考虑所有的可能来寻找一个解，GRAPH-SEARCH会考虑避免冗余路径 玩具问题 八数码问题 滑块问题 NP完全问题 n皇后问题 搜索算法的测试用例 寻径问题 旅行商问题（TSP），旅行商算法 VLSI布线问题 单元布局，通道布线 机器人导航 自动装配序列 蛋白质设计问题 扩展 problem{ RESULT(state, action): new state, STEP-COST(state, action)} 区分结点和状态两个概念用队列存储结点评价一个算法的性能需要考虑的四个方面： 完备性： 当问题有解时，算法能否保证找到解 最优性 空间复杂度 时间复杂度 问题的难度规模，状态空间图 V+E 顶点、边的集合复杂度通常由3个量表达：b，分支因子；d，目标节点最小深度；m，状态空间中任何路径的最大长度 评价算法的有效性，总代价=搜索代价+解代价 无信息搜索：也叫盲目搜索，指的是除了问题定义之外，没有更多的信息输入；搜索算法要做的是生成后继，并区分目标状态和非目标状态。有信息搜索，或者启发式搜索：知道一个非目标状态是否“更有希望”接近目标的策略 宽度优先搜索 一致代价搜索 深度优先搜索 深度受限搜索 有信息搜索，启发式函数h(n)，估算从n到目标的解代价最佳优先搜索根据评估函数选择扩展结点贪婪最佳优先搜索，扩展h(n)最小的结点，不是最优，但效率最高A搜索，扩展g(n)+h(n)最小的结点；如果h(n)是可采纳的（对于TREE-SEARCH)，或者一致的（对于GRAPH-SEARCH)，A算是完备且是最优的；它的空间复杂度很高。RBFS（递归最佳优先）和SMA（简单内存受限A），鲁棒的，最优的搜索算法；它们使用有限的内存，只要时间充足，能解决A*因内存不足不能求解的问题。 启发式搜索算法的性能取决于启发式函数的质量。]]></content>
       <categories>
         <category>AI</category>
         <category>基础</category>
@@ -25,9 +36,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ch03-通过搜索进行问题求解]]></title>
-    <url>%2Fblog%2Fch03-%E9%80%9A%E8%BF%87%E6%90%9C%E7%B4%A2%E8%BF%9B%E8%A1%8C%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[要进行问题求解，首先要讨论的是对问题及其解的精确定义。目标 目标被满足的那些“世界的状态”的集合它需要确定它能完成的行动种类，和行动所带来的状态变化 问题形式化，是在给定目标下对需要采取的行动和需要考虑的状态的确认过程搜索，为达到目标，寻找行动序列的过程搜索的输入是问题，输出是问题的解，以行动序列的形式输出解 用5个组成部分形式化描述问题 Agent的初始状态 描述Agent的可能行动，即描述Agent在给定状态s下可以执行的动作集合 对每个行动的描述，称为转移模型，在状态s下执行行动a后达到的状态 目标测试，确定给定的状态是不是目标状态（在目标状态集合里） 路径耗散，解的质量由路径耗散度量，耗散值最小的为最优解 初始状态、行动和转移模型定义了问题的状态空间 八数码问题 滑块问题 NP完全问题 n皇后问题 搜索算法的测试用例]]></content>
+    <title><![CDATA[ch02-智能Agent]]></title>
+    <url>%2Fblog%2Fch02-%E6%99%BA%E8%83%BDAgent%2F</url>
+    <content type="text"><![CDATA[性能度量行动序列 Agent一词的定义]]></content>
       <categories>
         <category>AI</category>
         <category>基础</category>

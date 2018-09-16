@@ -467,7 +467,7 @@
 <p>next主题提供了用户自定义样式的扩展功能，我们只需要在themes/next/source/css/_custom/custom.styl里添加样式就可以新增或覆盖原来的样式。<br><figure class="highlight styl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// custom.styl</span></div><div class="line"><span class="keyword">if</span> hexo-config(<span class="string">"custom_css.post_body_a.enable"</span>)</div><div class="line">  <span class="selector-class">.post-body</span></div><div class="line">    a&#123;</div><div class="line">      <span class="attribute">color</span>: convert(hexo-config(<span class="string">"custom_css.post_body_a.normal_color"</span>));</div><div class="line">      <span class="attribute">border-bottom</span>: none;</div><div class="line">      &amp;:hover &#123;</div><div class="line">        <span class="attribute">color</span>: convert(hexo-config(<span class="string">"custom_css.post_body_a.hover_color"</span>));</div><div class="line">        <span class="attribute">text-decoration</span>: underline;</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <h2 id="20180825-生成tags和categories页">2.8. 20180825 生成tags和categories页</h2><p>按照<a href="https://github.com/iissnan/hexo-theme-next/issues/339" target="_blank" rel="external">这里</a>的说明操作即可。按tags为例说明，categories的步骤完全一样：</p>
 <p>STEP1<br><code>hexo new page tags</code></p>
-<p>STEP2<br>打开 /source/tags/index.md，增加type<br><figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 标签</div><div class="line">date: 2016-06-08 16:19:38</div><div class="line"><span class="section">type: "tags"</span></div><div class="line">---</div></pre></td></tr></table></figure></p>
+<p>STEP2<br>打开 /source/tags/index.md，增加type<br><figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 标签</div><div class="line">date: 2016-06-08 16:19:38</div><div class="line"><span class="section">type: "tags"</div><div class="line">---</span></div></pre></td></tr></table></figure></p>
 <p>STEP3<br>打开 /themes/next/_config.yml，找到menu，打开tags的注释，可能是这样<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">menu:</span></div><div class="line"><span class="attr">  home:</span> <span class="string">/</span></div><div class="line"><span class="attr">  categories:</span> <span class="string">/categories</span></div><div class="line">  <span class="comment">#about: /about</span></div><div class="line"><span class="attr">  archives:</span> <span class="string">/archives</span></div><div class="line"><span class="attr">  tags:</span> <span class="string">/tags</span></div><div class="line">  <span class="comment">#commonweal: /404.html</span></div></pre></td></tr></table></figure></p>
 <h2 id="20180826-修改hexo的渲染引擎，以便更好的支持latex">2.9. 20180826 修改hexo的渲染引擎，以便更好的支持latex</h2><p>hexo在渲染含有下标，大括号的公式时会存在问题，因此参考<a href="https://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="external">这篇文章</a>的介绍做了些修改：</p>
 <p>替换渲染引擎（先卸载掉旧的，再安装新的）<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm uninstall hexo-renderer-marked --save</div><div class="line">npm install hexo-renderer-kramed --save</div></pre></td></tr></table></figure></p>
@@ -589,7 +589,7 @@
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -614,7 +614,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
