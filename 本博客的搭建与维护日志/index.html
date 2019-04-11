@@ -106,17 +106,17 @@
 
 
 
-  <meta name="description" content="1. 环境的维护1.1. 目标数据不依赖容器，数据都放在宿主机里，容器只用于跑hexo程序，容器可以随时销毁并重新创建。 1.2. 手段宿主机的根目录为/home/kduser/hexo/，容器创建命令仅映射了容器中hexo的source目录，之所以不映射整个hexo目录是因为那样会有问题，原因不明。所以在搭建环境时将除了source外其余的部分（配置文件，样式，服务端.ejs文件等）拷贝到了宿主">
+  <meta name="description" content="1. 环境的维护1.1. 基本原则数据不依赖容器，数据都放在宿主机里，容器只用于跑hexo程序，容器可以随时销毁并重新创建。">
 <meta name="keywords" content="备忘">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本博客的搭建与维护日志">
 <meta property="og:url" content="https://cyclonezhao.github.io/blog/本博客的搭建与维护日志/index.html">
 <meta property="og:site_name" content="量子纠缠">
-<meta property="og:description" content="1. 环境的维护1.1. 目标数据不依赖容器，数据都放在宿主机里，容器只用于跑hexo程序，容器可以随时销毁并重新创建。 1.2. 手段宿主机的根目录为/home/kduser/hexo/，容器创建命令仅映射了容器中hexo的source目录，之所以不映射整个hexo目录是因为那样会有问题，原因不明。所以在搭建环境时将除了source外其余的部分（配置文件，样式，服务端.ejs文件等）拷贝到了宿主">
+<meta property="og:description" content="1. 环境的维护1.1. 基本原则数据不依赖容器，数据都放在宿主机里，容器只用于跑hexo程序，容器可以随时销毁并重新创建。">
 <meta property="og:updated_time" content="2018-08-02T04:18:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本博客的搭建与维护日志">
-<meta name="twitter:description" content="1. 环境的维护1.1. 目标数据不依赖容器，数据都放在宿主机里，容器只用于跑hexo程序，容器可以随时销毁并重新创建。 1.2. 手段宿主机的根目录为/home/kduser/hexo/，容器创建命令仅映射了容器中hexo的source目录，之所以不映射整个hexo目录是因为那样会有问题，原因不明。所以在搭建环境时将除了source外其余的部分（配置文件，样式，服务端.ejs文件等）拷贝到了宿主">
+<meta name="twitter:description" content="1. 环境的维护1.1. 基本原则数据不依赖容器，数据都放在宿主机里，容器只用于跑hexo程序，容器可以随时销毁并重新创建。">
 
 
 
@@ -423,8 +423,12 @@
       
 
       
-        <h1 id="环境的维护">1. 环境的维护</h1><h2 id="目标">1.1. 目标</h2><p>数据不依赖容器，数据都放在宿主机里，容器只用于跑hexo程序，容器可以随时销毁并重新创建。</p>
-<h2 id="手段">1.2. 手段</h2><p>宿主机的根目录为<code>/home/kduser/hexo/</code>，容器创建命令仅映射了容器中hexo的source目录，之所以不映射整个hexo目录是因为那样会有问题，原因不明。所以在搭建环境时将除了source外其余的部分（配置文件，样式，服务端.ejs文件等）拷贝到了宿主机，以后仅修改宿主机的这些文件，并通过执行<code>update.sh</code>将这些文件更新到容器里并删除编译生成的public目录。<br><a id="more"></a></p>
+        <h1 id="环境的维护">1. 环境的维护</h1><h2 id="基本原则">1.1. 基本原则</h2><p>数据不依赖容器，数据都放在宿主机里，容器只用于跑hexo程序，容器可以随时销毁并重新创建。</p>
+<a id="more"></a>
+<h2 id="本地启动服务">1.2. 本地启动服务</h2><p>以我的mac为例，启动Docker后，打开终端查看容器，启动容器，进入容器，启动hexo服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">zhaoyi$ docker ps <span class="_">-a</span></div><div class="line">CONTAINER ID        IMAGE                COMMAND             CREATED             STATUS                      PORTS                                        NAMES</div><div class="line">8616395cc9ba        zhaoyi/hexo-export   <span class="string">"/bin/bash"</span>         7 months ago        Exited (255) 3 months ago   0.0.0.0:80-&gt;80/tcp, 0.0.0.0:4000-&gt;4000/tcp   hexo</div><div class="line">zhaoyi$ docker start hexo</div><div class="line">hexo</div><div class="line">zhaoyi$ docker <span class="built_in">exec</span> -it hexo /bin/bash</div><div class="line">root@8616395cc9ba:/<span class="comment"># cd /usr/share/nginx/html/</span></div><div class="line">root@8616395cc9ba:/usr/share/nginx/html<span class="comment"># ls</span></div><div class="line">50x.html  _config.yml  db.json	index.html  node_modules  package-lock.json  package.json  public  scaffolds  <span class="built_in">source</span>  themes</div><div class="line">root@8616395cc9ba:/usr/share/nginx/html<span class="comment"># hexo s</span></div><div class="line">(node:39) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://0.0.0.0:4000/blog/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
+<p>此时在（宿主机）浏览器输入 <a href="http://localhost:4000/blog" target="_blank" rel="external">http://localhost:4000/blog</a> 即可看到效果。</p>
+<p>编辑文章，保存.md文件后，可自动本地发布。</p>
 <h1 id="维护日志">2. 维护日志</h1><h2 id="20180727-初始搭建">2.1. 20180727 初始搭建</h2><ul>
 <li><p>下载docker镜像并运行，容器起名为 hexo，指定宿主机与容器的文件映射和端口映射；<em>PS：镜像和容器的关系就好比类与对象的关系</em></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo docker run --name hexo -it -p 80:80 -v /home/kduser/hexo/<span class="built_in">source</span>:/usr/share/nginx/html/<span class="built_in">source</span> simplyintricate/hexo</div></pre></td></tr></table></figure>
@@ -467,7 +471,7 @@
 <p>next主题提供了用户自定义样式的扩展功能，我们只需要在themes/next/source/css/_custom/custom.styl里添加样式就可以新增或覆盖原来的样式。<br><figure class="highlight styl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// custom.styl</span></div><div class="line"><span class="keyword">if</span> hexo-config(<span class="string">"custom_css.post_body_a.enable"</span>)</div><div class="line">  <span class="selector-class">.post-body</span></div><div class="line">    a&#123;</div><div class="line">      <span class="attribute">color</span>: convert(hexo-config(<span class="string">"custom_css.post_body_a.normal_color"</span>));</div><div class="line">      <span class="attribute">border-bottom</span>: none;</div><div class="line">      &amp;:hover &#123;</div><div class="line">        <span class="attribute">color</span>: convert(hexo-config(<span class="string">"custom_css.post_body_a.hover_color"</span>));</div><div class="line">        <span class="attribute">text-decoration</span>: underline;</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <h2 id="20180825-生成tags和categories页">2.8. 20180825 生成tags和categories页</h2><p>按照<a href="https://github.com/iissnan/hexo-theme-next/issues/339" target="_blank" rel="external">这里</a>的说明操作即可。按tags为例说明，categories的步骤完全一样：</p>
 <p>STEP1<br><code>hexo new page tags</code></p>
-<p>STEP2<br>打开 /source/tags/index.md，增加type<br><figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 标签</div><div class="line">date: 2016-06-08 16:19:38</div><div class="line"><span class="section">type: "tags"</span></div><div class="line">---</div></pre></td></tr></table></figure></p>
+<p>STEP2<br>打开 /source/tags/index.md，增加type<br><figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 标签</div><div class="line">date: 2016-06-08 16:19:38</div><div class="line"><span class="section">type: "tags"</div><div class="line">---</span></div></pre></td></tr></table></figure></p>
 <p>STEP3<br>打开 /themes/next/_config.yml，找到menu，打开tags的注释，可能是这样<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">menu:</span></div><div class="line"><span class="attr">  home:</span> <span class="string">/</span></div><div class="line"><span class="attr">  categories:</span> <span class="string">/categories</span></div><div class="line">  <span class="comment">#about: /about</span></div><div class="line"><span class="attr">  archives:</span> <span class="string">/archives</span></div><div class="line"><span class="attr">  tags:</span> <span class="string">/tags</span></div><div class="line">  <span class="comment">#commonweal: /404.html</span></div></pre></td></tr></table></figure></p>
 <h2 id="20180826-修改hexo的渲染引擎，以便更好的支持latex">2.9. 20180826 修改hexo的渲染引擎，以便更好的支持latex</h2><p>hexo在渲染含有下标，大括号的公式时会存在问题，因此参考<a href="https://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="external">这篇文章</a>的介绍做了些修改：</p>
 <p>替换渲染引擎（先卸载掉旧的，再安装新的）<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm uninstall hexo-renderer-marked --save</div><div class="line">npm install hexo-renderer-kramed --save</div></pre></td></tr></table></figure></p>
@@ -594,7 +598,7 @@
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -621,7 +625,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -672,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境的维护"><span class="nav-text">1. 环境的维护</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-text">1.1. 目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手段"><span class="nav-text">1.2. 手段</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#维护日志"><span class="nav-text">2. 维护日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#20180727-初始搭建"><span class="nav-text">2.1. 20180727 初始搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180801-更换Next样式"><span class="nav-text">2.2. 20180801 更换Next样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180810-修改源码"><span class="nav-text">2.3. 20180810 修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180815-关闭动画效果"><span class="nav-text">2.4. 20180815 关闭动画效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180818-修改源码"><span class="nav-text">2.5. 20180818 修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180823-修改npm源，安装hexo-footnotes插件，支持注脚，重新制作镜像"><span class="nav-text">2.6. 20180823 修改npm源，安装hexo-footnotes插件，支持注脚，重新制作镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180824-超链接样式修改成蓝色"><span class="nav-text">2.7. 20180824 超链接样式修改成蓝色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180825-生成tags和categories页"><span class="nav-text">2.8. 20180825 生成tags和categories页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180826-修改hexo的渲染引擎，以便更好的支持latex"><span class="nav-text">2.9. 20180826 修改hexo的渲染引擎，以便更好的支持latex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180916-支持代码折叠"><span class="nav-text">2.10. 20180916 支持代码折叠</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境的维护"><span class="nav-text">1. 环境的维护</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本原则"><span class="nav-text">1.1. 基本原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地启动服务"><span class="nav-text">1.2. 本地启动服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#维护日志"><span class="nav-text">2. 维护日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#20180727-初始搭建"><span class="nav-text">2.1. 20180727 初始搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180801-更换Next样式"><span class="nav-text">2.2. 20180801 更换Next样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180810-修改源码"><span class="nav-text">2.3. 20180810 修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180815-关闭动画效果"><span class="nav-text">2.4. 20180815 关闭动画效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180818-修改源码"><span class="nav-text">2.5. 20180818 修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180823-修改npm源，安装hexo-footnotes插件，支持注脚，重新制作镜像"><span class="nav-text">2.6. 20180823 修改npm源，安装hexo-footnotes插件，支持注脚，重新制作镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180824-超链接样式修改成蓝色"><span class="nav-text">2.7. 20180824 超链接样式修改成蓝色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180825-生成tags和categories页"><span class="nav-text">2.8. 20180825 生成tags和categories页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180826-修改hexo的渲染引擎，以便更好的支持latex"><span class="nav-text">2.9. 20180826 修改hexo的渲染引擎，以便更好的支持latex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20180916-支持代码折叠"><span class="nav-text">2.10. 20180916 支持代码折叠</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -692,7 +700,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

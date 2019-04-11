@@ -106,19 +106,32 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="量子纠缠">
-<meta property="og:url" content="https://cyclonezhao.github.io/blog/categories/数学/排列与组合/index.html">
+  <meta name="description" content="1. Agent与环境传感器从环境接收感知序列，Agent函数将感知序列转化为行动序列，执行器执行行动序列。 2. 理性理性涉及以下4个方面：  性能度量 Agent对环境的先验知识 Agent可以完成的行动 Agent截止到此时的感知序列  3. 任务环境3.1. 任务环境的规范描述，即PEAS描述： 性能 环境 执行器 传感器  例如，出租车任务环境的PEAS描述如下：  性能度量：到达正确的">
+<meta name="keywords" content="备忘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02-智能Agent">
+<meta property="og:url" content="https://cyclonezhao.github.io/blog/02-智能Agent/index.html">
 <meta property="og:site_name" content="量子纠缠">
+<meta property="og:description" content="1. Agent与环境传感器从环境接收感知序列，Agent函数将感知序列转化为行动序列，执行器执行行动序列。 2. 理性理性涉及以下4个方面：  性能度量 Agent对环境的先验知识 Agent可以完成的行动 Agent截止到此时的感知序列  3. 任务环境3.1. 任务环境的规范描述，即PEAS描述： 性能 环境 执行器 传感器  例如，出租车任务环境的PEAS描述如下：  性能度量：到达正确的">
+<meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/AI_MODERN/02_Agent与环境.png">
+<meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/AI_MODERN/02_简单反射Agent.png">
+<meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/AI_MODERN/02_基于模型的反射Agent.png">
+<meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/AI_MODERN/02_基于目标的Agent.png">
+<meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/AI_MODERN/02_基于效用的Agent.png">
+<meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/AI_MODERN/02_学习Agent.png">
+<meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/AI_MODERN/02_状态表达方式.png">
+<meta property="og:updated_time" content="2018-11-04T03:14:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="量子纠缠">
+<meta name="twitter:title" content="02-智能Agent">
+<meta name="twitter:description" content="1. Agent与环境传感器从环境接收感知序列，Agent函数将感知序列转化为行动序列，执行器执行行动序列。 2. 理性理性涉及以下4个方面：  性能度量 Agent对环境的先验知识 Agent可以完成的行动 Agent截止到此时的感知序列  3. 任务环境3.1. 任务环境的规范描述，即PEAS描述： 性能 环境 执行器 传感器  例如，出租车任务环境的PEAS描述如下：  性能度量：到达正确的">
+<meta name="twitter:image" content="https://cyclonezhao.github.io/blog/resources/AI_MODERN/02_Agent与环境.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://cyclonezhao.github.io/blog/categories/数学/排列与组合/"/>
+  <link rel="canonical" href="https://cyclonezhao.github.io/blog/02-智能Agent/"/>
 
 
 
@@ -128,7 +141,7 @@
   };
 </script>
 
-  <title>分类: 排列与组合 | 量子纠缠</title>
+  <title>02-智能Agent | 量子纠缠</title>
   
 
 
@@ -175,7 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -228,7 +241,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/blog/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -256,25 +269,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -323,59 +317,258 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>排列与组合<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cyclonezhao.github.io/blog/blog/02-智能Agent/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="照熠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子纠缠">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/blog/排列与组合的基本概念/" itemprop="url">
-              
-                <span itemprop="name">排列与组合的基本概念</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">02-智能Agent
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-28T20:09:00+08:00"
-              content="2018-08-28" >
-          08-28
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-03 21:54:00" itemprop="dateCreated datePublished" datetime="2018-09-03T21:54:00+08:00">2018-09-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-04 11:14:06" itemprop="dateModified" datetime="2018-11-04T11:14:06+08:00">2018-11-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/categories/AI/《人工智能-一种现代的方法》笔记/" itemprop="url" rel="index"><span itemprop="name">《人工智能 - 一种现代的方法》笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Agent与环境">1. Agent与环境</h1><p><img src="/blog/resources/AI_MODERN/02_Agent与环境.png" alt="02_Agent与环境.png"><br>传感器从环境接收感知序列，Agent函数将感知序列转化为行动序列，执行器执行行动序列。</p>
+<h1 id="理性">2. 理性</h1><p>理性涉及以下4个方面：</p>
+<ol>
+<li>性能度量</li>
+<li>Agent对环境的先验知识</li>
+<li>Agent可以完成的行动</li>
+<li>Agent截止到此时的感知序列</li>
+</ol>
+<h1 id="任务环境">3. 任务环境</h1><h2 id="任务环境的规范描述，即PEAS描述：">3.1. 任务环境的规范描述，即PEAS描述：</h2><ol>
+<li>性能</li>
+<li>环境</li>
+<li>执行器</li>
+<li>传感器</li>
+</ol>
+<p>例如，出租车任务环境的PEAS描述如下：</p>
+<ol>
+<li>性能度量：到达正确的目的地，油量消耗、耗时或费用最小化……</li>
+<li>驾驶环境：各种各样的道路、路上的车辆、行人……</li>
+<li>执行器：油门、刹车、显示或语音输出……</li>
+<li>传感器：摄像头、红外或声呐、GPS……</li>
+</ol>
+<h2 id="任务环境的性质">3.2. 任务环境的性质</h2><ol>
+<li>完全可观察的和部分可观察的</li>
+<li>单Agent和多Agent</li>
+<li>确定的和随机的</li>
+<li>片段式的和延续式的：检验次品零件、下棋</li>
+<li>静态的和动态的：填字谜游戏、自动驾驶</li>
+<li>离散的和连续的：国际象棋、自动驾驶</li>
+<li>已知的和未知的：指的是Agent的知识状态</li>
+</ol>
+<h1 id="Agent程序">4. Agent程序</h1><p>4种基本的Agent程序：</p>
+<ol>
+<li>简单反射Agent</li>
+<li>基于模型的反射Agent</li>
+<li>基于目标的Agent</li>
+<li>基于效用的Agent</li>
+</ol>
+<p><img src="/blog/resources/AI_MODERN/02_简单反射Agent.png" alt="简单反射Agent.png"><br><img src="/blog/resources/AI_MODERN/02_基于模型的反射Agent.png" alt="基于模型的反射Agent.png"><br><img src="/blog/resources/AI_MODERN/02_基于目标的Agent.png" alt="基于目标的Agent.png"><br><img src="/blog/resources/AI_MODERN/02_基于效用的Agent.png" alt="基于效用的Agent.png"></p>
+<h2 id="学习Agent">4.1. 学习Agent</h2><p><img src="/blog/resources/AI_MODERN/02_学习Agent.png" alt="学习Agent.png"><br>学习Agent划分为4个概念上的组件：</p>
+<ol>
+<li>学习元件：负责改进提高</li>
+<li>性能元件：负责选择外部行动，是前文考虑的整个Agent。</li>
+<li>评判元件</li>
+<li>问题产生器</li>
+</ol>
+<p><strong>学习元件</strong>的设计很大程度上依赖性能元件的设计，“Agent一旦学会了这个技能，需要何种性能元件行驶该能力”？</p>
+<p><strong>评判元件</strong>根据固定的性能标准告诉学习元件Agent的运转情况，负责指出Agent的成功程度。应该把性能标准置于Agent之外考虑，理由是Agent不应该修改性能标准来适应自身行为。</p>
+<p><strong>问题产生器</strong>负责建议探索性行动。如果性能元件自行其是，它会一直根据已知的知识采取最佳的行动。但是，如果Agent可以进行少量探索，做一些短期内可能次优的行动，那么它也许会发现对长期而言更好的行动。</p>
+<h1 id="状态表达方式">5. 状态表达方式</h1><p><img src="/blog/resources/AI_MODERN/02_状态表达方式.png" alt="状态表达方式.png"><br>表达力强的方式能表达的信息更多，但也更复杂。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/备忘/" rel="tag"># 备忘</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/一元n次方程/" rel="next" title="一元n次方程">
+                <i class="fa fa-chevron-left"></i> 一元n次方程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/03-通过搜索进行问题求解/" rel="prev" title="03-通过搜索进行问题求解">
+                03-通过搜索进行问题求解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -398,8 +591,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -486,6 +688,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Agent与环境"><span class="nav-text">1. Agent与环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理性"><span class="nav-text">2. 理性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#任务环境"><span class="nav-text">3. 任务环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#任务环境的规范描述，即PEAS描述："><span class="nav-text">3.1. 任务环境的规范描述，即PEAS描述：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务环境的性质"><span class="nav-text">3.2. 任务环境的性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Agent程序"><span class="nav-text">4. Agent程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习Agent"><span class="nav-text">4.1. 学习Agent</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状态表达方式"><span class="nav-text">5. 状态表达方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -616,6 +834,10 @@
   
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
