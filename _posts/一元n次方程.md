@@ -3,10 +3,9 @@ layout: post
 title:  一元n次方程
 date:   2018-09-04 07:29:00:00 +0800
 tags:
-  - 备忘
+  - 方程
 categories:
   - 数学
-  - 多项式
 mathjax: true
 ---
 
