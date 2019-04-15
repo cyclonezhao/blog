@@ -106,19 +106,19 @@
 
 
 
-  <meta name="description" content="1. 多级索引对于占有$b_i$个块的索引文件，二分查找大约需要 $\log _2 b_i$ 次块访问，多级索引可以减少块访问次数。 将索引文件作为多级索引的第一级，然后，对第一级建立主索引，该主索引作为多级索引的第二级，索引项的数目等于第一级的块数。因为第二级是主索引，所以可以使用块锚。索引文件的块因子 $(bfr_i)$ 又称作多级索引的扇出$(fo)$。若索引文件有$r_1$个项，则第二级则">
+  <meta name="description" content="1. 多级索引对于占有$b_i$个块的索引文件，二分查找大约需要 $\log _2 b_i$ 次块访问，多级索引可以减少块访问次数。">
 <meta name="keywords" content="数据库理论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多级索引">
 <meta property="og:url" content="https://cyclonezhao.github.io/blog/多级索引/index.html">
 <meta property="og:site_name" content="量子纠缠">
-<meta property="og:description" content="1. 多级索引对于占有$b_i$个块的索引文件，二分查找大约需要 $\log _2 b_i$ 次块访问，多级索引可以减少块访问次数。 将索引文件作为多级索引的第一级，然后，对第一级建立主索引，该主索引作为多级索引的第二级，索引项的数目等于第一级的块数。因为第二级是主索引，所以可以使用块锚。索引文件的块因子 $(bfr_i)$ 又称作多级索引的扇出$(fo)$。若索引文件有$r_1$个项，则第二级则">
+<meta property="og:description" content="1. 多级索引对于占有$b_i$个块的索引文件，二分查找大约需要 $\log _2 b_i$ 次块访问，多级索引可以减少块访问次数。">
 <meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/B树结点示意.jpg">
 <meta property="og:image" content="https://cyclonezhao.github.io/blog/resources/B+树叶结点示意.jpg">
-<meta property="og:updated_time" content="2019-04-15T14:45:08.000Z">
+<meta property="og:updated_time" content="2019-04-15T14:54:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多级索引">
-<meta name="twitter:description" content="1. 多级索引对于占有$b_i$个块的索引文件，二分查找大约需要 $\log _2 b_i$ 次块访问，多级索引可以减少块访问次数。 将索引文件作为多级索引的第一级，然后，对第一级建立主索引，该主索引作为多级索引的第二级，索引项的数目等于第一级的块数。因为第二级是主索引，所以可以使用块锚。索引文件的块因子 $(bfr_i)$ 又称作多级索引的扇出$(fo)$。若索引文件有$r_1$个项，则第二级则">
+<meta name="twitter:description" content="1. 多级索引对于占有$b_i$个块的索引文件，二分查找大约需要 $\log _2 b_i$ 次块访问，多级索引可以减少块访问次数。">
 <meta name="twitter:image" content="https://cyclonezhao.github.io/blog/resources/B树结点示意.jpg">
 
 
@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-15 22:45:08" itemprop="dateModified" datetime="2019-04-15T22:45:08+08:00">2019-04-15</time>
+                <time title="修改时间：2019-04-15 22:54:46" itemprop="dateModified" datetime="2019-04-15T22:54:46+08:00">2019-04-15</time>
               
             
           </span>
@@ -439,6 +439,7 @@
 
       
         <h1 id="多级索引">1. 多级索引</h1><p>对于占有$b_i$个块的索引文件，二分查找大约需要 $\log _2 b_i$ 次块访问，多级索引可以减少块访问次数。</p>
+<a id="more"></a>
 <p>将索引文件作为多级索引的<strong>第一级</strong>，然后，对第一级建立主索引，该主索引作为多级索引的<strong>第二级</strong>，索引项的数目等于第一级的块数。因为第二级是主索引，所以可以使用块锚。索引文件的块因子 $(bfr_i)$ 又称作多级索引的扇出$(fo)$。若索引文件有$r_1$个项，则第二级则有 $r_2=\lceil (r_1/fo) \rceil$ 个项。</p>
 <p>对第二级可重复这一过程，得到<strong>第三级</strong>，第三级拥有$r_3=\lceil (r_2/fo) \rceil$个项。</p>
 <p>只有当第一级所需要的存储空间超过一个块时，才需要第二级。类似地，只有当第二级所需要的存储空间超过一个块时，才需要第三级。重复这个过程直到第t级索引所需要的存储空间在一个块以内，该磁盘块称为<strong>顶级索引</strong>，其中 $t=\lceil \log _{fo} (r1) \rceil$ 。</p>
